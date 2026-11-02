@@ -77,11 +77,6 @@
         .error-panel { border-left: 5px solid var(--error-color); }
         .tech-panel { border-left: 5px solid var(--info-color); }
 
-        .command-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; }
-        .command-item { background-color: var(--code-bg); padding: 14px 18px; border-radius: 8px; font-family: monospace; border-left: 4px solid var(--accent-color); }
-        .command-item span.cmd { color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 4px; }
-        .command-item span.desc { color: var(--text-muted); font-family: sans-serif; font-size: 0.9rem; }
-
         footer { text-align: center; padding: 40px 20px; background-color: var(--card-bg); color: var(--text-muted); border-top: 1px solid var(--border-color); margin-top: 60px; }
         footer a { color: var(--accent-color); text-decoration: none; }
     </style>
@@ -90,7 +85,7 @@
 
     <header>
         <button class="lang-switch" onclick="toggleLanguage()"><i class="fa-solid fa-language"></i> <span id="lang-btn-text">English</span></button>
-        <div class="url-badge"><i class="fa-solid fa-globe"></i> https://voxelsculptor.mcpl.com</div>
+        <div class="url-badge"><i class="fa-solid fa-globe"></i> https://Playergameplay142.github.io/VoxelSculpter/</div>
         <h1><i class="fa-solid fa-cube"></i> VoxelSculptor</h1>
         <p id="header-desc">Yüksek performanslı, bağımsız Minecraft dünya düzenleme eklentisi. 50+ dahili komut, gelişmiş geri alma ve sıfır dış bağımlılık!</p>
         <div class="btn-group">
@@ -104,75 +99,48 @@
     </header>
 
     <div class="container">
-        <!-- HATALAR & ÇÖZÜMLER PANELSİ -->
+        <!-- GÜNCELLENMİŞ HATALAR PANELSİ -->
         <div class="panel-box error-panel">
             <h2 style="color: var(--error-color); margin-bottom: 15px;" id="err-title"><i class="fa-solid fa-bug"></i> Hatalar ve Çözüm Paneli</h2>
+            
             <div style="background-color: var(--code-bg); padding: 18px; border-radius: 8px; margin-bottom: 15px;">
-                <h3 style="color: #f87171; font-family: monospace; margin-bottom: 8px;" id="err1-name">Hata: "Bu siteye ulaşılamıyor / DNS_PROBE_FINISHED_NXDOMAIN"</h3>
+                <h3 style="color: #f87171; font-family: monospace; margin-bottom: 8px;" id="err1-name">Hata: "404 File Not Found / Sayfa Bulunamadı"</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;" id="err1-desc">
-                    <code>https://voxelsculptor.mcpl.com</code> adresine girmeye çalıştığınızda bu hatayı alıyorsanız, DNS yönlendirmesi henüz tamamlanmamış veya eksiktir.
+                    GitHub Pages üzerinde `index.html` dosyasının adı yanlış veya kök dizinde (ana klasörde) olmadığında bu hata alınır. Dosya adının küçük harflerle `index.html` olduğundan emin olun.
                 </p>
-                <ul style="color: var(--text-color); padding-left: 20px; font-size: 0.9rem; margin-top: 10px;" id="err1-steps">
-                    <li><strong>CNAME Kontrolü:</strong> DNS sağlayıcınızda <code>voxelsculptor</code> kaydının <code>Playergameplay142.github.io</code> hedefine yönlendiğinden emin olun.</li>
-                    <li><strong>DNS Temizleme:</strong> Windows Komut İstemi (CMD) ekranında <code>ipconfig /flushdns</code> komutunu çalıştırın.</li>
-                    <li><strong>Yayılma Süresi:</strong> Yeni eklenen CNAME kayıtlarının aktif olması 15 dakika ile 24 saat arasında sürebilir.</li>
-                </ul>
             </div>
+
             <div style="background-color: var(--code-bg); padding: 18px; border-radius: 8px;">
-                <h3 style="color: #f87171; font-family: monospace; margin-bottom: 8px;" id="err2-name">Hata: "Invalid method declaration; return type required" (Derleme Hatası)</h3>
+                <h3 style="color: #f87171; font-family: monospace; margin-bottom: 8px;" id="err2-name">Hata: "Invalid method declaration; return type required"</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;" id="err2-desc">
-                    Java sınıflarındaki metod tanımlarında dönüş tipi eksik olduğunda oluşur. `onEnable()` metodunun başına `void` eklenerek çözülür.
+                    Plugin kodlarında `onEnable()` metodunun başında `void` ifadesi unutulduğunda derleme hatası verir. Metodu `public void onEnable()` olarak güncelleyin.
                 </p>
             </div>
         </div>
 
         <!-- ÖZELLİKLER -->
-        <h2 class="section-title" id="feat-title">Öne Çıkan Özellikler</h2>
+        <h2 class="section-title" id="feat-title">Yeni Özellikler & Detaylar</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <i class="fa-solid fa-bolt"></i>
-                <h3 id="f1-title">Bağımsız Mimarisi</h3>
-                <p id="f1-desc">WorldEdit veya FAWE gerektirmez. Spigot/Paper sunucularda doğrudan çalışır.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-terminal"></i>
-                <h3 id="f2-title">50 Tam Komut</h3>
-                <p id="f2-desc">Alan seçimi, şekil oluşturma, kopyala/yapıştır ve arazi düzenleme komutları.</p>
+                <h3 id="f1-title">Sıfır Bağımlılık</h3>
+                <p id="f1-desc">WorldEdit veya FAWE gerektirmez. Spigot/Paper 1.20+ sunucularda tamamen bağımsız çalışır.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-rotate-left"></i>
-                <h3 id="f3-title">Geri Alma Sistemi</h3>
-                <p id="f3-desc">/vundo ve /vredo komutları ile yapılan blok değişiklikleri anında eski haline çevrilir.</p>
+                <h3 id="f2-title">Geri / İleri Alma (Undo/Redo)</h3>
+                <p id="f2-desc">Hatalı işlemleri /vundo ve /vredo komutları ile anında eski haline getirebilirsiniz.</p>
             </div>
             <div class="feature-card">
-                <i class="fa-solid fa-file-code"></i>
-                <h3 id="f4-title">Kolay Yapılandırma</h3>
-                <p id="f4-desc">Tüm sohbet mesajları ve limitler config.yml ve messages.yml üzerinden değiştirilebilir.</p>
-            </div>
-        </div>
-
-        <!-- TEKNİK BİLGİLER -->
-        <div class="panel-box tech-panel">
-            <h2 style="color: var(--info-color); margin-bottom: 15px;" id="tech-title"><i class="fa-solid fa-microchip"></i> Teknik Özellikler ve Sürümler</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-                <div>
-                    <h4 style="color: var(--accent-color); margin-bottom: 5px;" id="t1-title">Kullanılan API</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;" id="t1-desc">Standart <strong>Spigot API / Paper API</strong> kullanılarak geliştirilmiştir.</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent-color); margin-bottom: 5px;" id="t2-title">Desteklenen Sürümler</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;" id="t2-desc">Minecraft <strong>1.20, 1.20.4, 1.20.6 ve 1.21+</strong> sürümleriyle uyumludur.</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--accent-color); margin-bottom: 5px;" id="t3-title">Java Gereksinimi</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;" id="t3-desc">Sunucuda <strong>Java 17</strong> veya üzeri kurulu olmalıdır.</p>
-                </div>
+                <i class="fa-solid fa-copy"></i>
+                <h3 id="f3-title">Şematik Sistemi (.vschem)</h3>
+                <p id="f3-desc">Yapılarınızı /vsave komutuyla kaydedip /vload komutuyla istediğiniz zaman tekrar yükleyin.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>VoxelSculptor &copy; 2026. Official Domain: <a href="https://voxelsculptor.mcpl.com">https://voxelsculptor.mcpl.com</a></p>
+        <p>VoxelSculptor &copy; 2026. Official Repository: <a href="https://github.com/Playergameplay142/VoxelSculpter">Playergameplay142/VoxelSculpter</a></p>
     </footer>
 
     <script>
@@ -184,20 +152,14 @@
                 btnDownload: "İndir VoxelSculptor-1.0.jar",
                 btnSource: "Kaynak Kodları",
                 errTitle: "<i class='fa-solid fa-bug'></i> Hatalar ve Çözüm Paneli",
-                err1Name: "Hata: 'Bu siteye ulaşılamıyor / DNS_PROBE_FINISHED_NXDOMAIN'",
-                err1Desc: "https://voxelsculptor.mcpl.com adresine girmeye çalıştığınızda bu hatayı alıyorsanız, DNS yönlendirmesi henüz tamamlanmamış veya eksiktir.",
-                err1Steps: "<li><strong>CNAME Kontrolü:</strong> DNS sağlayıcınızda <code>voxelsculptor</code> kaydının <code>Playergameplay142.github.io</code> hedefine yönlendiğinden emin olun.</li><li><strong>DNS Temizleme:</strong> Windows Komut İstemi (CMD) ekranında <code>ipconfig /flushdns</code> komutunu çalıştırın.</li><li><strong>Yayılma Süresi:</strong> Yeni eklenen CNAME kayıtlarının aktif olması 15 dakika ile 24 saat arasında sürebilir.</li>",
-                err2Name: "Hata: 'Invalid method declaration; return type required' (Derleme Hatası)",
-                err2Desc: "Java sınıflarındaki metod tanımlarında dönüş tipi eksik olduğunda oluşur. onEnable() metodunun başına void eklenerek çözülür.",
-                featTitle: "Öne Çıkan Özellikler",
-                f1Title: "Bağımsız Mimarisi", f1Desc: "WorldEdit veya FAWE gerektirmez. Spigot/Paper sunucularda doğrudan çalışır.",
-                f2Title: "50 Tam Komut", f2Desc: "Alan seçimi, şekil oluşturma, kopyala/yapıştır ve arazi düzenleme komutları.",
-                f3Title: "Geri Alma Sistemi", f3Desc: "/vundo ve /vredo komutları ile yapılan blok değişiklikleri anında eski haline çevrilir.",
-                f4Title: "Kolay Yapılandırma", f4Desc: "Tüm sohbet mesajları ve limitler config.yml ve messages.yml üzerinden değiştirilebilir.",
-                techTitle: "<i class='fa-solid fa-microchip'></i> Teknik Özellikler ve Sürümler",
-                t1Title: "Kullanılan API", t1Desc: "Standart Spigot API / Paper API kullanılarak geliştirilmiştir.",
-                t2Title: "Desteklenen Sürümler", t2Desc: "Minecraft 1.20, 1.20.4, 1.20.6 ve 1.21+ sürümleriyle uyumludur.",
-                t3Title: "Java Gereksinimi", t3Desc: "Sunucuda Java 17 veya üzeri kurulu olmalıdır."
+                err1Name: "Hata: '404 File Not Found / Sayfa Bulunamadı'",
+                err1Desc: "GitHub Pages üzerinde index.html dosyasının adı yanlış veya kök dizinde olmadığında bu hata alınır. Dosya adının küçük harflerle index.html olduğundan emin olun.",
+                err2Name: "Hata: 'Invalid method declaration; return type required'",
+                err2Desc: "Plugin kodlarında onEnable() metodunun başında void ifadesi unutulduğunda derleme hatası verir. Metodu public void onEnable() olarak güncelleyin.",
+                featTitle: "Yeni Özellikler & Detaylar",
+                f1Title: "Sıfır Bağımlılık", f1Desc: "WorldEdit veya FAWE gerektirmez. Spigot/Paper 1.20+ sunucularda tamamen bağımsız çalışır.",
+                f2Title: "Geri / İleri Alma (Undo/Redo)", f2Desc: "Hatalı işlemleri /vundo ve /vredo komutları ile anında eski haline getirebilirsiniz.",
+                f3Title: "Şematik Sistemi (.vschem)", f3Desc: "Yapılarınızı /vsave komutuyla kaydedip /vload komutuyla istediğiniz zaman tekrar yükleyin."
             },
             en: {
                 btnText: "Türkçe",
@@ -205,20 +167,14 @@
                 btnDownload: "Download VoxelSculptor-1.0.jar",
                 btnSource: "Source Code",
                 errTitle: "<i class='fa-solid fa-bug'></i> Troubleshooting & Error Panel",
-                err1Name: "Error: 'This site can't be reached / DNS_PROBE_FINISHED_NXDOMAIN'",
-                err1Desc: "If you get this error when visiting https://voxelsculptor.mcpl.com, your DNS redirection is incomplete or pending propagation.",
-                err1Steps: "<li><strong>CNAME Check:</strong> Ensure your CNAME record points <code>voxelsculptor</code> to <code>Playergameplay142.github.io</code>.</li><li><strong>DNS Flush:</strong> Run <code>ipconfig /flushdns</code> in Command Prompt to clear local cache.</li><li><strong>Propagation Time:</strong> Global DNS propagation can take 15 mins up to 24 hours.</li>",
-                err2Name: "Error: 'Invalid method declaration; return type required' (Build Error)",
-                err2Desc: "Occurs when a return type is missing in Java methods. Resolved by declaring 'void' before onEnable().",
-                featTitle: "Key Features",
-                f1Title: "Standalone Architecture", f1Desc: "Runs on Spigot/Paper servers without requiring WorldEdit or FAWE.",
-                f2Title: "50 Built-in Commands", f2Desc: "Full set of commands for regions, 3D shapes, clipboard, and terraforming.",
-                f3Title: "Undo & Redo System", f3Desc: "Revert or re-apply block changes easily using /vundo and /vredo.",
-                f4Title: "Fully Configurable", f4Desc: "Customize messages and block limits inside config.yml and messages.yml.",
-                techTitle: "<i class='fa-solid fa-microchip'></i> Technical Specs & Versions",
-                t1Title: "Used API", t1Desc: "Built purely using standard Spigot API / Paper API.",
-                t2Title: "Supported Versions", t2Desc: "Compatible with Minecraft 1.20, 1.20.4, 1.20.6, and 1.21+.",
-                t3Title: "Java Requirement", t3Desc: "Requires Java 17 or higher on the server."
+                err1Name: "Error: '404 File Not Found'",
+                err1Desc: "Occurs when index.html is missing or misnamed in root directory. Ensure file is named strictly index.html in lowercase.",
+                err2Name: "Error: 'Invalid method declaration; return type required'",
+                err2Desc: "Triggers when 'void' is missing in Java onEnable() method. Update declaration to 'public void onEnable()'.",
+                featTitle: "New Features & Details",
+                f1Title: "Zero Dependencies", f1Desc: "Runs standalone on Spigot/Paper 1.20+ without requiring WorldEdit or FAWE.",
+                f2Title: "Undo / Redo Engine", f2Desc: "Revert or re-apply block operations easily using /vundo and /vredo commands.",
+                f3Title: "Schematic System (.vschem)", f3Desc: "Save builds using /vsave and load them anywhere with /vload."
             }
         };
 
@@ -231,19 +187,13 @@
             document.getElementById('btn-source').innerText = t.btnSource;
             document.getElementById('err-title').innerHTML = t.errTitle;
             document.getElementById('err1-name').innerText = t.err1Name;
-            document.getElementById('err1-desc').innerHTML = t.err1Desc;
-            document.getElementById('err1-steps').innerHTML = t.err1Steps;
+            document.getElementById('err1-desc').innerText = t.err1Desc;
             document.getElementById('err2-name').innerText = t.err2Name;
             document.getElementById('err2-desc').innerText = t.err2Desc;
             document.getElementById('feat-title').innerText = t.featTitle;
             document.getElementById('f1-title').innerText = t.f1Title; document.getElementById('f1-desc').innerText = t.f1Desc;
             document.getElementById('f2-title').innerText = t.f2Title; document.getElementById('f2-desc').innerText = t.f2Desc;
             document.getElementById('f3-title').innerText = t.f3Title; document.getElementById('f3-desc').innerText = t.f3Desc;
-            document.getElementById('f4-title').innerText = t.f4Title; document.getElementById('f4-desc').innerText = t.f4Desc;
-            document.getElementById('tech-title').innerHTML = t.techTitle;
-            document.getElementById('t1-title').innerText = t.t1Title; document.getElementById('t1-desc').innerHTML = t.t1Desc;
-            document.getElementById('t2-title').innerText = t.t2Title; document.getElementById('t2-desc').innerHTML = t.t2Desc;
-            document.getElementById('t3-title').innerText = t.t3Title; document.getElementById('t3-desc').innerHTML = t.t3Desc;
         }
     </script>
 </body>
