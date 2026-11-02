@@ -1,0 +1,56 @@
+name: VoxelSculptor
+version: 1.0
+main: com.voxel.sculptor.VoxelSculptor
+api-version: 1.20
+commands:
+  vhelp: { description: "Shows all VoxelSculptor commands and help guide.", permission: voxel.admin }
+  vwand: { permission: voxel.admin }
+  vpos1: { permission: voxel.admin }
+  vpos2: { permission: voxel.admin }
+  vhpos1: { permission: voxel.admin }
+  vhpos2: { permission: voxel.admin }
+  vchunk: { permission: voxel.admin }
+  vexpand: { permission: voxel.admin }
+  vcontract: { permission: voxel.admin }
+  vshift: { permission: voxel.admin }
+  vclear: { permission: voxel.admin }
+  vsize: { permission: voxel.admin }
+  vcount: { permission: voxel.admin }
+  vdistrib: { permission: voxel.admin }
+  vvisual: { permission: voxel.admin }
+  vset: { permission: voxel.admin }
+  vreplace: { permission: voxel.admin }
+  vair: { permission: voxel.admin }
+  walls: { permission: voxel.admin }
+  faces: { permission: voxel.admin }
+  hollow: { permission: voxel.admin }
+  sphere: { permission: voxel.admin }
+  hsphere: { permission: voxel.admin }
+  cylinder: { permission: voxel.admin }
+  hcylinder: { permission: voxel.admin }
+  pyramid: { permission: voxel.admin }
+  hpyramid: { permission: voxel.admin }
+  vline: { permission: voxel.admin }
+  vcenter: { permission: voxel.admin }
+  voverlay: { permission: voxel.admin }
+  vsmooth: { permission: voxel.admin }
+  vdrain: { permission: voxel.admin }
+  vcopy: { permission: voxel.admin }
+  vcut: { permission: voxel.admin }
+  vpaste: { permission: voxel.admin }
+  vrotate: { permission: voxel.admin }
+  vflip: { permission: voxel.admin }
+  vsave: { permission: voxel.admin }
+  vload: { permission: voxel.admin }
+  vlist: { permission: voxel.admin }
+  vdel-schem: { permission: voxel.admin }
+  vundo: { permission: voxel.admin }
+  vredo: { permission: voxel.admin }
+  vclearhistory: { permission: voxel.admin }
+  vsuperpickaxe: { permission: voxel.admin }
+  vthaw: { permission: voxel.admin }
+  vgreen: { permission: voxel.admin }
+  vfilldown: { permission: voxel.admin }
+  vfixwater: { permission: voxel.admin }
+  vpreset: { permission: voxel.admin }
+  vreload: { permission: voxel.admin }

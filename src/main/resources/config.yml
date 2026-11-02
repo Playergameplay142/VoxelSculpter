@@ -1,0 +1,12 @@
+# VoxelSculptor Settings
+wand-item: "WOODEN_AXE"
+max-block-limit: 100000
+
+presets:
+  stone_wall:
+    - STONE
+    - STONE_BRICKS
+    - ANDESITE
+  nature:
+    - GRASS_BLOCK
+    - DIRT
