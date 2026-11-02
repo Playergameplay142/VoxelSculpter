@@ -14,7 +14,6 @@
             --text-muted: #94a3b8;
             --code-bg: #090d16;
             --border-color: #334155;
-            --error-color: #ef4444;
             --info-color: #38bdf8;
         }
 
@@ -73,9 +72,13 @@
         .feature-card h3 { margin-bottom: 10px; }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .panel-box { background-color: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 40px; }
-        .error-panel { border-left: 5px solid var(--error-color); }
-        .tech-panel { border-left: 5px solid var(--info-color); }
+        .commands-section { background-color: var(--card-bg); padding: 35px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 40px; }
+        .category-title { font-size: 1.4rem; color: var(--info-color); margin: 30px 0 15px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+
+        .command-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; }
+        .command-item { background-color: var(--code-bg); padding: 14px 18px; border-radius: 8px; font-family: monospace; border-left: 4px solid var(--accent-color); }
+        .command-item span.cmd { color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 4px; font-size: 1rem; }
+        .command-item span.desc { color: var(--text-muted); font-family: sans-serif; font-size: 0.9rem; }
 
         footer { text-align: center; padding: 40px 20px; background-color: var(--card-bg); color: var(--text-muted); border-top: 1px solid var(--border-color); margin-top: 60px; }
         footer a { color: var(--accent-color); text-decoration: none; }
@@ -99,27 +102,8 @@
     </header>
 
     <div class="container">
-        <!-- GÜNCELLENMİŞ HATALAR PANELSİ -->
-        <div class="panel-box error-panel">
-            <h2 style="color: var(--error-color); margin-bottom: 15px;" id="err-title"><i class="fa-solid fa-bug"></i> Hatalar ve Çözüm Paneli</h2>
-            
-            <div style="background-color: var(--code-bg); padding: 18px; border-radius: 8px; margin-bottom: 15px;">
-                <h3 style="color: #f87171; font-family: monospace; margin-bottom: 8px;" id="err1-name">Hata: "404 File Not Found / Sayfa Bulunamadı"</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;" id="err1-desc">
-                    GitHub Pages üzerinde `index.html` dosyasının adı yanlış veya kök dizinde (ana klasörde) olmadığında bu hata alınır. Dosya adının küçük harflerle `index.html` olduğundan emin olun.
-                </p>
-            </div>
-
-            <div style="background-color: var(--code-bg); padding: 18px; border-radius: 8px;">
-                <h3 style="color: #f87171; font-family: monospace; margin-bottom: 8px;" id="err2-name">Hata: "Invalid method declaration; return type required"</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;" id="err2-desc">
-                    Plugin kodlarında `onEnable()` metodunun başında `void` ifadesi unutulduğunda derleme hatası verir. Metodu `public void onEnable()` olarak güncelleyin.
-                </p>
-            </div>
-        </div>
-
         <!-- ÖZELLİKLER -->
-        <h2 class="section-title" id="feat-title">Yeni Özellikler & Detaylar</h2>
+        <h2 class="section-title" id="feat-title">Öne Çıkan Özellikler</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <i class="fa-solid fa-bolt"></i>
@@ -137,6 +121,82 @@
                 <p id="f3-desc">Yapılarınızı /vsave komutuyla kaydedip /vload komutuyla istediğiniz zaman tekrar yükleyin.</p>
             </div>
         </div>
+
+        <!-- 50 KOMUT DETAYLI LİSTESİ -->
+        <div class="commands-section">
+            <h2 class="section-title" style="margin-top: 0;" id="cmd-main-title">Tüm Komut Rehberi (50 Komut)</h2>
+
+            <!-- KATEGORİ 1 -->
+            <div class="category-title" id="cat1-title"><i class="fa-solid fa-vector-square"></i> 1. Seçim Komutları (Selection Commands)</div>
+            <div class="command-list">
+                <div class="command-item"><span class="cmd">/vhelp [page]</span><span class="desc" id="c1">Oyun içi etkileşimli yardım rehberini gösterir.</span></div>
+                <div class="command-item"><span class="cmd">/vwand</span><span class="desc" id="c2">Alan seçimi yapmayı sağlayan tahta baltayı verir.</span></div>
+                <div class="command-item"><span class="cmd">/vpos1</span><span class="desc" id="c3">Bulunduğunuz konumu 1. Nokta (Pos1) olarak ayarlar.</span></div>
+                <div class="command-item"><span class="cmd">/vpos2</span><span class="desc" id="c4">Bulunduğunuz konumu 2. Nokta (Pos2) olarak ayarlar.</span></div>
+                <div class="command-item"><span class="cmd">/vhpos1</span><span class="desc" id="c5">Baktığınız bloğu doğrudan 1. Nokta olarak ayarlar.</span></div>
+                <div class="command-item"><span class="cmd">/vhpos2</span><span class="desc" id="c6">Baktığınız bloğu doğrudan 2. Nokta olarak ayarlar.</span></div>
+                <div class="command-item"><span class="cmd">/vchunk</span><span class="desc" id="c7">İçinde durduğunuz Chunk alanının tamamını seçer.</span></div>
+                <div class="command-item"><span class="cmd">/vexpand &lt;miktar&gt;</span><span class="desc" id="c8">Seçili alanı yukarıya doğru genişletir.</span></div>
+                <div class="command-item"><span class="cmd">/vcontract &lt;miktar&gt;</span><span class="desc" id="c9">Seçili alan sınırlarını daraltır.</span></div>
+                <div class="command-item"><span class="cmd">/vshift &lt;miktar&gt;</span><span class="desc" id="c10">Seçili bölgeyi kaydırır.</span></div>
+                <div class="command-item"><span class="cmd">/vclear</span><span class="desc" id="c11">Aktif nokta seçimlerini sıfırlar.</span></div>
+                <div class="command-item"><span class="cmd">/vsize</span><span class="desc" id="c12">Seçili alandaki toplam blok sayısını (hacmi) gösterir.</span></div>
+                <div class="command-item"><span class="cmd">/vcount &lt;blok&gt;</span><span class="desc" id="c13">Seçili alanda belirtilen bloktan kaç adet olduğunu sayar.</span></div>
+                <div class="command-item"><span class="cmd">/vdistrib</span><span class="desc" id="c14">Seçili alandaki blokların tür dağılımını listeler.</span></div>
+                <div class="command-item"><span class="cmd">/vvisual</span><span class="desc" id="c15">Seçim sınırlarını parçacık efektiyle gösterir.</span></div>
+            </div>
+
+            <!-- KATEGORİ 2 -->
+            <div class="category-title" id="cat2-title"><i class="fa-solid fa-hammer"></i> 2. Doldurma ve Şekil Komutları (Generation)</div>
+            <div class="command-list">
+                <div class="command-item"><span class="cmd">/vset &lt;blok&gt;</span><span class="desc" id="c16">Seçili alanı belirtilen blokla doldurur.</span></div>
+                <div class="command-item"><span class="cmd">/vreplace &lt;eski&gt; &lt;yeni&gt;</span><span class="desc" id="c17">Sadece belirli bir blok türünü başka bir bloğa dönüştürür.</span></div>
+                <div class="command-item"><span class="cmd">/vair</span><span class="desc" id="c18">Seçili alandaki tüm blokları siler (Hava yapar).</span></div>
+                <div class="command-item"><span class="cmd">/walls &lt;blok&gt;</span><span class="desc" id="c19">Seçili alanın etrafına duvar örer.</span></div>
+                <div class="command-item"><span class="cmd">/faces &lt;blok&gt;</span><span class="desc" id="c20">Seçili alanın tüm dış yüzeylerini kaplar.</span></div>
+                <div class="command-item"><span class="cmd">/hollow</span><span class="desc" id="c21">Seçili alanın içindeki blokları temizler (İçini boşaltır).</span></div>
+                <div class="command-item"><span class="cmd">/sphere &lt;blok&gt; &lt;r&gt;</span><span class="desc" id="c22">Dolu bir 3D küre oluşturur.</span></div>
+                <div class="command-item"><span class="cmd">/hsphere &lt;blok&gt; &lt;r&gt;</span><span class="desc" id="c23">İçi boş bir 3D küre oluşturur.</span></div>
+                <div class="command-item"><span class="cmd">/cylinder &lt;blok&gt; &lt;r&gt; &lt;h&gt;</span><span class="desc" id="c24">Dolu bir silindir inşa eder.</span></div>
+                <div class="command-item"><span class="cmd">/hcylinder &lt;blok&gt; &lt;r&gt; &lt;h&gt;</span><span class="desc" id="c25">İçi boş bir silindir inşa eder.</span></div>
+                <div class="command-item"><span class="cmd">/pyramid &lt;blok&gt; &lt;boyut&gt;</span><span class="desc" id="c26">Dolu bir piramit oluşturur.</span></div>
+                <div class="command-item"><span class="cmd">/hpyramid &lt;blok&gt; &lt;boyut&gt;</span><span class="desc" id="c27">İçi boş bir piramit oluşturur.</span></div>
+                <div class="command-item"><span class="cmd">/vline &lt;blok&gt;</span><span class="desc" id="c28">Pos1 ve Pos2 arasına düz blok çizgisi çeker.</span></div>
+                <div class="command-item"><span class="cmd">/vcenter &lt;blok&gt;</span><span class="desc" id="c29">Seçili alanın tam ortasına blok yerleştirir.</span></div>
+                <div class="command-item"><span class="cmd">/voverlay &lt;blok&gt;</span><span class="desc" id="c30">Blokların üst yüzeyine katman (Çim/Kar vb.) ekler.</span></div>
+                <div class="command-item"><span class="cmd">/vsmooth</span><span class="desc" id="c31">Engebeli arazileri düzleştirir.</span></div>
+                <div class="command-item"><span class="cmd">/vdrain [yarıçap]</span><span class="desc" id="c32">Çevredeki su ve lavları kurutur.</span></div>
+            </div>
+
+            <!-- KATEGORİ 3 -->
+            <div class="category-title" id="cat3-title"><i class="fa-solid fa-copy"></i> 3. Pano ve Şematik Komutları (Clipboard)</div>
+            <div class="command-list">
+                <div class="command-item"><span class="cmd">/vcopy</span><span class="desc" id="c33">Seçili alanı panoya kopyalar.</span></div>
+                <div class="command-item"><span class="cmd">/vcut</span><span class="desc" id="c34">Seçili alanı keser ve panoya kaydeder.</span></div>
+                <div class="command-item"><span class="cmd">/vpaste</span><span class="desc" id="c35">Panodaki yapıyı bulunduğunuz yere yapıştırır.</span></div>
+                <div class="command-item"><span class="cmd">/vrotate</span><span class="desc" id="c36">Panodaki yapıyı 90 derece döndürür.</span></div>
+                <div class="command-item"><span class="cmd">/vflip</span><span class="desc" id="c37">Panodaki yapıyı aynalar (yansıtır).</span></div>
+                <div class="command-item"><span class="cmd">/vsave &lt;isim&gt;</span><span class="desc" id="c38">Panoyu `.vschem` dosyası olarak kaydeder.</span></div>
+                <div class="command-item"><span class="cmd">/vload &lt;isim&gt;</span><span class="desc" id="c39">Kayıtlı `.vschem` şematiğini panoya yükler.</span></div>
+                <div class="command-item"><span class="cmd">/vlist</span><span class="desc" id="c40">Sunucudaki tüm kayıtlı şematikleri listeler.</span></div>
+                <div class="command-item"><span class="cmd">/vdel-schem &lt;isim&gt;</span><span class="desc" id="c41">Belirtilen şematik dosyasını siler.</span></div>
+            </div>
+
+            <!-- KATEGORİ 4 -->
+            <div class="category-title" id="cat4-title"><i class="fa-solid fa-clock-rotate-left"></i> 4. Geçmiş ve Araç Komutları (History & Utilities)</div>
+            <div class="command-list">
+                <div class="command-item"><span class="cmd">/vundo</span><span class="desc" id="c42">Yapılan son blok işlemini geri alır.</span></div>
+                <div class="command-item"><span class="cmd">/vredo</span><span class="desc" id="c43">Geri alınan işlemi tekrar uygular.</span></div>
+                <div class="command-item"><span class="cmd">/vclearhistory</span><span class="desc" id="c44">Geri alma geçmişini temizler.</span></div>
+                <div class="command-item"><span class="cmd">/vsuperpickaxe</span><span class="desc" id="c45">Tek tıkla blok kıran süper kazmayı aktif eder.</span></div>
+                <div class="command-item"><span class="cmd">/vthaw [yarıçap]</span><span class="desc" id="c46">Çevredeki buzları eritip suya çevirir.</span></div>
+                <div class="command-item"><span class="cmd">/vgreen [yarıçap]</span><span class="desc" id="c47">Çevredeki toprakları çim bloğuna çevirir.</span></div>
+                <div class="command-item"><span class="cmd">/vfilldown &lt;blok&gt;</span><span class="desc" id="c48">Aşağıya doğru boşlukları blokla doldurur.</span></div>
+                <div class="command-item"><span class="cmd">/vfixwater [yarıçap]</span><span class="desc" id="c49">Akan suları durgun suya dönüştürür.</span></div>
+                <div class="command-item"><span class="cmd">/vpreset</span><span class="desc" id="c50">Önceden ayarlanmış blok paletini uygular.</span></div>
+                <div class="command-item"><span class="cmd">/vreload</span><span class="desc" id="c51">Ayar dosyalarını sunucuyu kapatmadan yeniler.</span></div>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -151,30 +211,30 @@
                 headerDesc: "Yüksek performanslı, bağımsız Minecraft dünya düzenleme eklentisi. 50+ dahili komut, gelişmiş geri alma ve sıfır dış bağımlılık!",
                 btnDownload: "İndir VoxelSculptor-1.0.jar",
                 btnSource: "Kaynak Kodları",
-                errTitle: "<i class='fa-solid fa-bug'></i> Hatalar ve Çözüm Paneli",
-                err1Name: "Hata: '404 File Not Found / Sayfa Bulunamadı'",
-                err1Desc: "GitHub Pages üzerinde index.html dosyasının adı yanlış veya kök dizinde olmadığında bu hata alınır. Dosya adının küçük harflerle index.html olduğundan emin olun.",
-                err2Name: "Hata: 'Invalid method declaration; return type required'",
-                err2Desc: "Plugin kodlarında onEnable() metodunun başında void ifadesi unutulduğunda derleme hatası verir. Metodu public void onEnable() olarak güncelleyin.",
-                featTitle: "Yeni Özellikler & Detaylar",
+                featTitle: "Öne Çıkan Özellikler",
                 f1Title: "Sıfır Bağımlılık", f1Desc: "WorldEdit veya FAWE gerektirmez. Spigot/Paper 1.20+ sunucularda tamamen bağımsız çalışır.",
                 f2Title: "Geri / İleri Alma (Undo/Redo)", f2Desc: "Hatalı işlemleri /vundo ve /vredo komutları ile anında eski haline getirebilirsiniz.",
-                f3Title: "Şematik Sistemi (.vschem)", f3Desc: "Yapılarınızı /vsave komutuyla kaydedip /vload komutuyla istediğiniz zaman tekrar yükleyin."
+                f3Title: "Şematik Sistemi (.vschem)", f3Desc: "Yapılarınızı /vsave komutuyla kaydedip /vload komutuyla istediğiniz zaman tekrar yükleyin.",
+                cmdMainTitle: "Tüm Komut Rehberi (50 Komut)",
+                cat1Title: "<i class='fa-solid fa-vector-square'></i> 1. Seçim Komutları (Selection)",
+                cat2Title: "<i class='fa-solid fa-hammer'></i> 2. Doldurma ve Şekil Komutları (Generation)",
+                cat3Title: "<i class='fa-solid fa-copy'></i> 3. Pano ve Şematik Komutları (Clipboard)",
+                cat4Title: "<i class='fa-solid fa-clock-rotate-left'></i> 4. Geçmiş ve Araç Komutları (History & Utility)"
             },
             en: {
                 btnText: "Türkçe",
                 headerDesc: "High-performance standalone Minecraft world editing plugin. 50+ built-in commands, full undo history, and zero external dependencies!",
                 btnDownload: "Download VoxelSculptor-1.0.jar",
                 btnSource: "Source Code",
-                errTitle: "<i class='fa-solid fa-bug'></i> Troubleshooting & Error Panel",
-                err1Name: "Error: '404 File Not Found'",
-                err1Desc: "Occurs when index.html is missing or misnamed in root directory. Ensure file is named strictly index.html in lowercase.",
-                err2Name: "Error: 'Invalid method declaration; return type required'",
-                err2Desc: "Triggers when 'void' is missing in Java onEnable() method. Update declaration to 'public void onEnable()'.",
-                featTitle: "New Features & Details",
+                featTitle: "Key Features",
                 f1Title: "Zero Dependencies", f1Desc: "Runs standalone on Spigot/Paper 1.20+ without requiring WorldEdit or FAWE.",
                 f2Title: "Undo / Redo Engine", f2Desc: "Revert or re-apply block operations easily using /vundo and /vredo commands.",
-                f3Title: "Schematic System (.vschem)", f3Desc: "Save builds using /vsave and load them anywhere with /vload."
+                f3Title: "Schematic System (.vschem)", f3Desc: "Save builds using /vsave and load them anywhere with /vload.",
+                cmdMainTitle: "Complete Command Reference (50 Commands)",
+                cat1Title: "<i class='fa-solid fa-vector-square'></i> 1. Selection Commands",
+                cat2Title: "<i class='fa-solid fa-hammer'></i> 2. Generation & Modify Commands",
+                cat3Title: "<i class='fa-solid fa-copy'></i> 3. Clipboard & Schematic Commands",
+                cat4Title: "<i class='fa-solid fa-clock-rotate-left'></i> 4. History & Utility Commands"
             }
         };
 
@@ -185,15 +245,15 @@
             document.getElementById('header-desc').innerText = t.headerDesc;
             document.getElementById('btn-download').innerText = t.btnDownload;
             document.getElementById('btn-source').innerText = t.btnSource;
-            document.getElementById('err-title').innerHTML = t.errTitle;
-            document.getElementById('err1-name').innerText = t.err1Name;
-            document.getElementById('err1-desc').innerText = t.err1Desc;
-            document.getElementById('err2-name').innerText = t.err2Name;
-            document.getElementById('err2-desc').innerText = t.err2Desc;
             document.getElementById('feat-title').innerText = t.featTitle;
             document.getElementById('f1-title').innerText = t.f1Title; document.getElementById('f1-desc').innerText = t.f1Desc;
             document.getElementById('f2-title').innerText = t.f2Title; document.getElementById('f2-desc').innerText = t.f2Desc;
             document.getElementById('f3-title').innerText = t.f3Title; document.getElementById('f3-desc').innerText = t.f3Desc;
+            document.getElementById('cmd-main-title').innerText = t.cmdMainTitle;
+            document.getElementById('cat1-title').innerHTML = t.cat1Title;
+            document.getElementById('cat2-title').innerHTML = t.cat2Title;
+            document.getElementById('cat3-title').innerHTML = t.cat3Title;
+            document.getElementById('cat4-title').innerHTML = t.cat4Title;
         }
     </script>
 </body>
